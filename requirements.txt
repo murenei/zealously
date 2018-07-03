@@ -1,0 +1,10 @@
+Django==2.0.6
+django-filter==1.1.0
+djangorestframework==3.8.2
+Markdown==2.6.11
+mathgen==0.0.1
+mpmath==1.0.0
+psycopg2==2.7.5
+pytz==2018.5
+sympy==1.1.1
+whitenoise==3.3.1
