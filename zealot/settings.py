@@ -138,10 +138,10 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # where static files are collected
-STATIC_URL = '/static/'     # Where project level static files are located
+STATIC_URL = '/static/'     # builds the relative path FROM THE APP location so project_folder/app_folder/static
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static"),  # Where project level static files are located
 ]
 
 # Simplified static file serving.

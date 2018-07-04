@@ -37,6 +37,16 @@ def gen_equation(request):
     return render(request, template, context)
 
 
+# ================================================
+# CLASS BASED (+ generic) VIEWS
+from django.views.generic import TemplateView
+
+
+class AboutView(TemplateView):
+    template_name = "about.html"
+
+
+# ================================================ #
 # REST FRAMEWORK
 
 
