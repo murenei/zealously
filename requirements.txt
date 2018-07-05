@@ -7,7 +7,13 @@ gunicorn==19.8.1
 Markdown==2.6.11
 mathgen==0.0.1
 mpmath==1.0.0
+numpy==1.14.5
+pandas==0.23.1
 psycopg2==2.7.5
+python-dateutil==2.7.3
 pytz==2018.5
+scikit-learn==0.19.1
+scipy==1.1.0
+six==1.11.0
 sympy==1.1.1
 whitenoise==3.3.1
