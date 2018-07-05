@@ -1,0 +1,39 @@
+{% extends "textapp/base.html" %}
+
+<!-- CONTENT BLOCK -->
+{% block content %}
+
+<!-- FORM -->
+
+<!-- END FORM -->
+
+<p>This is the text machine learning app</p>
+
+
+<!-- FORM -->
+
+<form action="{% url 'analyse-sentiment' %}" method="post">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="formControlTextarea1">Dump text to analyse here!</label>
+    <textarea class="form-control" id="formControlTextarea1" rows="3" name="textToAnalyse"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<!-- END FORM -->
+
+{% if prediction %}
+<p>{{ prediction }}</p>
+{% else %}
+<p>Sentiment rediction will appear here...</p>
+{% endif %}
+
+{% endblock content %}
+<!-- END CONTENT BLOCK -->
+
+{% block js_plugins %}
+{% endblock js_plugins %}
+
+{% block js_scripts %}
+
+{% endblock js_scripts %}

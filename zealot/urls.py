@@ -21,6 +21,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('math/', include('mathapp.urls'), name='mathapp'),
+    path('text/', include('textapp.urls'), name='textapp'),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     # the template engine doesn't search the 'mysite' (zealot) folder for templates. It does search all of the app folders though.
     # For now, home.html is in the mathapp template folder. Will eventually create a separate app for the home pages.

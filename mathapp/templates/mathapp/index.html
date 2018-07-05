@@ -1,0 +1,53 @@
+{% extends "mathapp/base.html" %}
+
+<!-- CONTENT BLOCK -->
+{% block content %}
+
+<!-- FORM -->
+<form action="{% url 'gen_equation' %}" method="post">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="selectEqType">Select problem type</label>
+    <select class="form-control" id="selectEqType" name="problem_type">
+      <option>LIN</option>
+      <option>QUAD</option>
+      <option>POLY</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="selectNumberEqs">Select number of problems</label>
+    <select class="form-control" id="selectNumberEqs" name="n_problems">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<!-- END FORM -->
+
+<!-- LIST EQUATIONS -->
+{% if eqs %}
+    {% for eq in eqs %}
+        <p>{{ eq }}</p>
+    {% endfor %}
+{% else %}
+<p>
+  Equations will be listed here.
+</p>
+{% endif %}
+<!-- END EQUATION LIST -->
+
+
+{% endblock content %}
+<!-- END CONTENT BLOCK -->
+
+{% block js_plugins %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' type="text/javascript" async></script>
+{% endblock js_plugins %}
+
+{% block js_scripts %}
+
+{% endblock js_scripts %}

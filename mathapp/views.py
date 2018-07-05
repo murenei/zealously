@@ -8,7 +8,7 @@ from mathgen import algebra
 
 
 def index(request):
-    template = "index.html"
+    template = "mathapp/index.html"
     return render(request, template)
 
 
@@ -32,7 +32,7 @@ def gen_equation(request):
     }
     # print(len(eqs))
 
-    template = "index.html"
+    template = "mathapp/index.html"
 
     return render(request, template, context)
 
@@ -43,7 +43,7 @@ from django.views.generic import TemplateView
 
 
 class AboutView(TemplateView):
-    template_name = "about.html"
+    template_name = "mathapp/about.html"
 
 
 # ================================================ #

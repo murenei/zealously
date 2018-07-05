@@ -25,7 +25,7 @@ SECRET_KEY = '3&ao1#(ki)((zob)6_)54o-pp40&=r3c42nl()$jmch&x238bd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','0.0.0.0']
+ALLOWED_HOSTS = ['localhost', '0.0.0.0']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mathapp.apps.MathappConfig',
+    'textapp.apps.TextappConfig',
     'rest_framework',  # Django Rest Framework
 
 ]

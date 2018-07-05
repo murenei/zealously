@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mathapp.apps.MathappConfig',
+    'textapp.apps.TextappConfig',
     'rest_framework',  # Django Rest Framework
 
 ]
