@@ -1,0 +1,39 @@
+{% extends "textapp/base.html" %}
+
+<!-- CONTENT BLOCK -->
+{% block content %}
+
+<!-- FORM -->
+
+<!-- END FORM -->
+
+<p>Use this tool to detect whether a text message you received is spam or not!</p>
+
+
+<!-- FORM -->
+
+<form action="{% url 'detect-spam' %}" method="post">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="formControlTextareaSpam">Dump text message text here!!</label>
+    <textarea class="form-control" id="formControlTextareaSpam" rows="3" name="spamToDetect"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<!-- END FORM -->
+<br/>
+{% if prediction %}
+<p>{{ prediction }}</p>
+{% else %}
+<p>Spam prediction will appear here</p>
+{% endif %}
+
+{% endblock content %}
+<!-- END CONTENT BLOCK -->
+
+{% block js_plugins %}
+{% endblock js_plugins %}
+
+{% block js_scripts %}
+
+{% endblock js_scripts %}

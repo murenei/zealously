@@ -1,0 +1,43 @@
+{% extends "textapp/base.html" %}
+
+<!-- CONTENT BLOCK -->
+{% block content %}
+
+<!-- FORM -->
+
+<!-- END FORM -->
+
+<p>Use this tool to calculate how similar two documents are!</p>
+
+
+<!-- FORM -->
+
+<form action="{% url 'calc-similarity' %}" method="post">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="formControlTextareaSimilarity1">Dump a document here!</label>
+    <textarea class="form-control" id="formControlTextareaSimilarity1" rows="3" name="doc1"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="formControlTextareaSimilarity2">Dump a second document here!</label>
+    <textarea class="form-control" id="formControlTextareaSimilarity2" rows="3" name="doc2"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<!-- END FORM -->
+<br/>
+{% if similarity_score %}
+<p>Document Similarity Score = {{ similarity_score }}</p>
+{% else %}
+<p>Document similarity score will appear here...</p>
+{% endif %}
+
+{% endblock content %}
+<!-- END CONTENT BLOCK -->
+
+{% block js_plugins %}
+{% endblock js_plugins %}
+
+{% block js_scripts %}
+
+{% endblock js_scripts %}
