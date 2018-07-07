@@ -1,0 +1,43 @@
+{% extends "textapp/base.html" %}
+
+<!-- CONTENT BLOCK -->
+{% block content %}
+
+<!-- FORM -->
+
+<!-- END FORM -->
+
+<p>Use this tool to detect a face in an image upload!</p>
+
+
+<!-- FORM -->
+
+<form action="{% url 'textapp:detect-faces' %}" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<!-- END FORM -->
+
+
+  
+{% load static %}
+
+<p>Images will appear here...</p>
+<p>Number of faces detected: {{ num_faces }}</p>
+
+<div>
+    <img src="{% static img_url %}" alt-text="" class="img-thumbnail"/>
+</div>
+<p>Image filename: {{ img_url }}</p>
+<br/>
+
+{% endblock content %}
+<!-- END CONTENT BLOCK -->
+
+{% block js_plugins %}
+{% endblock js_plugins %}
+
+{% block js_scripts %}
+
+{% endblock js_scripts %}

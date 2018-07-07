@@ -24,6 +24,8 @@ urlpatterns = [
     path('analyse_sentiment', views.analyse_sentiment, name='analyse-sentiment'),
     path('spam', views.detect_spam, name='detect-spam'),
     path('similarity', views.CalcSimilarity.as_view(), name='calc-similarity'),
+
+    path('detect-faces', views.DetectFaces.as_view(), name='detect-faces'),
     # path('similarity', views.calc_similarity, name='calc-similarity'),
     # path('', TemplateView.as_view(template_name='home.html'), name='home'),
     # the template engine doesn't search the 'mysite' (zealot) folder for templates. It does search all of the app folders though.
