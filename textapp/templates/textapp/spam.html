@@ -12,7 +12,7 @@
 
 <!-- FORM -->
 
-<form action="{% url 'detect-spam' %}" method="post">
+<form action="{% url 'textapp:detect-spam' %}" method="post">
 {% csrf_token %}
   <div class="form-group">
     <label for="formControlTextareaSpam">Dump text message text here!!</label>

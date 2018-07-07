@@ -12,18 +12,23 @@
 
 <!-- FORM -->
 
-<form action="{% url 'calc-similarity' %}" method="post">
+<form action="{% url 'textapp:calc-similarity' %}" method="post">
 {% csrf_token %}
-  <div class="form-group">
+ <!--  <div class="form-group">
     <label for="formControlTextareaSimilarity1">Dump a document here!</label>
     <textarea class="form-control" id="formControlTextareaSimilarity1" rows="3" name="doc1"></textarea>
-  </div>
+  </div> -->
   <div class="form-group">
     <label for="formControlTextareaSimilarity2">Dump a second document here!</label>
     <textarea class="form-control" id="formControlTextareaSimilarity2" rows="3" name="doc2"></textarea>
   </div>
+    {% if form %}
+    {{ form.as_p }}
+    {% endif %}
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br/>
+
 <!-- END FORM -->
 <br/>
 {% if similarity_score %}

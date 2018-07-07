@@ -79,24 +79,33 @@ def detect_spam(request):
 
 
 from .document_similarity import document_path_similarity
+from .forms import SimilarityForm
+from django.views import View
 
 
-def calc_similarity(request):
-    context = {}
-    if request.POST:
+class CalcSimilarity(View):
+    form = SimilarityForm(initial={'doc1': 'Dump some text here!'})
+    template = 'textapp/similarity.html'
+
+    def get(self, request):
+        return render(request, self.template, {'form': self.form})
+
+    def post(self, request):
         # get text from the form submission
         doc1 = request.POST['doc1']
         doc2 = request.POST['doc2']
+
+        print(doc1, doc2)
 
         # calculate similarity
         similarity_score = document_path_similarity(doc1, doc2)
 
         print('Document similarity = ' + str(similarity_score))
 
+        # self.form.fields["doc1"].initial = doc1
+
         context = {
             'similarity_score': '{:.2f}'.format(similarity_score),
+            'form': self.form,
         }
-
-    template = 'textapp/similarity.html'
-
-    return render(request, template, context)
+        return render(request, self.template, context)
