@@ -4,7 +4,7 @@
 {% block content %}
 
 <!-- FORM -->
-<form action="{% url 'gen_equation' %}" method="post">
+<form action="{% url 'mathapp:gen_equation' %}" method="post">
     {% csrf_token %}
   <div class="form-group">
     <label for="selectEqType">Select problem type</label>

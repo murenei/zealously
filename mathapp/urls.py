@@ -15,6 +15,8 @@ Function views
 from . import views
 from .views import ListUsers, ListQuestions
 
+app_name = 'mathapp'
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('gen_equation', views.gen_equation, name='gen_equation'),
