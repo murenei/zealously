@@ -15,8 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.http import HttpResponsePermanentRedirect
 from mathapp.views import AboutView
 from django.views.generic import TemplateView
+
+
+import requests
+
+
+def airtable_confirm(request, record_id):
+    url = "https://api.airtable.com/v0/appHgC3xduUgUe4EI/Agenda%20Template%20copy/"
+    record_id = record_id
+    url += record_id
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer keyJmtv8qAZgap79u'}
+    payload = {'fields': {'Confirmed': 'YES!'}}
+    r = requests.patch(url, headers=headers, json=payload)
+    print(r.url)
+    print(r.text)
+
+    return HttpResponsePermanentRedirect("https://www.google.com")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +43,13 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='mathapp/home.html'), name='home'),
     # the template engine doesn't search the 'mysite' (zealot) folder for templates. It does search all of the app folders though.
     # For now, home.html is in the mathapp template folder. Will eventually create a separate app for the home pages.
-    path('about', AboutView.as_view(), name='about-view')
+    path('about', AboutView.as_view(), name='about-view'),
+
+
+
+    # and for airtablw
+    path('airtable/confirm/<str:record_id>', airtable_confirm, name='airtable_confirm')
+
 
 
 ]
