@@ -1,0 +1,55 @@
+{% extends "mathapp/base.html" %}
+
+<!-- CONTENT BLOCK -->
+{% block content %}
+
+<!-- FORM -->
+
+<!-- END FORM -->
+
+<main role="main">
+
+  <section class="jumbotron">
+    <div class="container">
+      <h1 class="jumbotron-heading">Sentiment Analysis</h1>
+      <p class="lead text-muted">This page does exactly what it says on the tin: analyses the sentiment of the text provided.</p>
+      <p class="lead text-muted">Try it below.</p>
+    </div>
+  </section>
+
+
+<div class="album py-5 bg-light" id="browse">
+    <div class="container">
+        <!-- FORM -->
+        <form action="{% url 'textapp:analyse-sentiment' %}" method="post">
+        {% csrf_token %}
+          <div class="form-group">
+            <label for="formControlTextarea1">Dump text to analyse here!</label>
+            <textarea class="form-control" id="formControlTextarea1" rows="3" name="textToAnalyse"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- END FORM -->
+
+        <!-- RESULTS -->
+        {% if prediction %}
+        <p>{{ prediction }}</p>
+        {% else %}
+        <p>Sentiment prediction will appear here...</p>
+        {% endif %}
+        <!-- END RESULTS -->
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
+<!-- END CONTENT BLOCK -->
+
+{% block js_plugins %}
+{% endblock js_plugins %}
+
+{% block js_scripts %}
+
+{% endblock js_scripts %}

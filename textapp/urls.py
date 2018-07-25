@@ -20,10 +20,16 @@ from django.views.generic import TemplateView
 app_name = 'textapp'
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.sentiment, name='index'),
+
+    path('sentiment', views.sentiment, name='sentiment'),
     path('analyse_sentiment', views.analyse_sentiment, name='analyse-sentiment'),
-    path('spam', views.detect_spam, name='detect-spam'),
-    path('similarity', views.CalcSimilarity.as_view(), name='calc-similarity'),
+
+    path('spam', views.spam, name='spam'),
+    path('detect-spam', views.detect_spam, name='detect-spam'),
+
+    path('similarity', views.similarity, name='similarity'),
+    path('calc_similarity', views.CalcSimilarity.as_view(), name='calc-similarity'),
 
     path('detect-faces', views.DetectFaces.as_view(), name='detect-faces'),
     # path('similarity', views.calc_similarity, name='calc-similarity'),

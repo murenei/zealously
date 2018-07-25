@@ -19,7 +19,7 @@ app_name = 'mathapp'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('gen_equation', views.gen_equation, name='gen_equation'),
+    path('gen_equation', views.gen_equation, name='gen_equation'),  # called by the equation generator page
 
     # REST API Calls
     path('api/users/', ListUsers.as_view(), name='user-list'),

@@ -1,41 +1,47 @@
-{% extends "textapp/base.html" %}
+{% extends "mathapp/base.html" %}
 
 <!-- CONTENT BLOCK -->
 {% block content %}
 
-<!-- FORM -->
+<main role="main">
 
-<!-- END FORM -->
+  <section class="jumbotron">
+    <div class="container">
+      <h1 class="jumbotron-heading">Document Similarity</h1>
+      <p class="lead text-muted">This page comparies two documents and returns a similarity score. This is the basis for plagiarism detection.</p>
+      <p class="lead text-muted">Try it below.</p>
+    </div>
+  </section>
 
-<p>Use this tool to calculate how similar two documents are!</p>
 
-
-<!-- FORM -->
-
-<form action="{% url 'textapp:calc-similarity' %}" method="post">
-{% csrf_token %}
- <!--  <div class="form-group">
-    <label for="formControlTextareaSimilarity1">Dump a document here!</label>
-    <textarea class="form-control" id="formControlTextareaSimilarity1" rows="3" name="doc1"></textarea>
-  </div> -->
-  <div class="form-group">
-    <label for="formControlTextareaSimilarity2">Dump a second document here!</label>
-    <textarea class="form-control" id="formControlTextareaSimilarity2" rows="3" name="doc2"></textarea>
-  </div>
-    {% if form %}
-    {{ form.as_p }}
+<div class="album py-5 bg-light" id="browse">
+    <div class="container">
+    <!-- FORM -->
+    <form action="{% url 'textapp:calc-similarity' %}" method="post">
+    {% csrf_token %}
+     <!--  <div class="form-group">
+        <label for="formControlTextareaSimilarity1">Dump a document here!</label>
+        <textarea class="form-control" id="formControlTextareaSimilarity1" rows="3" name="doc1"></textarea>
+      </div> -->
+      <div class="form-group">
+        <label for="formControlTextareaSimilarity2">Dump a second document here!</label>
+        <textarea class="form-control" id="formControlTextareaSimilarity2" rows="3" name="doc2"></textarea>
+      </div>
+        {% if form %}
+        {{ form.as_p }}
+        {% endif %}
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <!-- END FORM -->
+    <br/>
+    {% if similarity_score %}
+    <p>Document Similarity Score = {{ similarity_score }}</p>
+    {% else %}
+    <p>Document similarity score will appear here...</p>
     {% endif %}
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<br/>
-
-<!-- END FORM -->
-<br/>
-{% if similarity_score %}
-<p>Document Similarity Score = {{ similarity_score }}</p>
-{% else %}
-<p>Document similarity score will appear here...</p>
-{% endif %}
+    <br/>
+  </div>
+</div>
 
 {% endblock content %}
 <!-- END CONTENT BLOCK -->

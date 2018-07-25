@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Richard Murray">
     <!-- Static -->
-    <link rel="shortcut icon" href="static/mathapp/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
     <!-- Animated -->
 
     <!-- TITLE BLOCK -->
@@ -19,11 +19,11 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- Custom styles for this template -->
-    <!-- <link href="{% static "mathapp/css/cover.css" %}" rel="stylesheet"> -->
+
         <!-- Custom styles for this template -->
-    <link href="{% static "mathapp/css/album.css" %}" rel="stylesheet">
-    <link href="{% static "mathapp/css/mdb.css" %}" rel="stylesheet">
+    <link href="static/css/mdb.css" rel="stylesheet">
+    <link href="static/css/album.css" rel="stylesheet">
+    <link href="static/mathapp/css/jumbotron.css" rel="stylesheet">
 
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -40,30 +40,81 @@
     <!-- <div class="container"> -->
       
       <!-- HEADER SECTION -->
-      {% block header %}
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">{% block masthead %} Graph visualisations {% endblock masthead %}</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="{% url 'mathapp:index' %}">Home</a>
+    {% block header %}
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Machine Learning Demonstration Apps</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <a class="nav-link" href="about">About</a>
-          </nav>
-        </div>
-      </header>
-      {% endblock header %}
+          <div class="collapse navbar-collapse" id="navbarsExample03">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{% url 'textapp:spam' %}" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown03">
+                  <a class="dropdown-item" href="{% url 'textapp:spam' %}">Spam Detection</a>
+                  <a class="dropdown-item" href="{% url 'textapp:sentiment' %}">Sentiment Analysis</a>
+                  <a class="dropdown-item" href="{% url 'textapp:similarity' %}">Text Similarity</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vision</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown03">
+                  <a class="dropdown-item disabled" href="#">Cat Identification</a>
+                  <a class="dropdown-item disabled" href="#">Recognise Sign Language Hand Signals</a>
+                  <a class="dropdown-item disabled" href="#">Object Detection (Vehicles)</a>
+                  <a class="dropdown-item disabled" href="#">Facial Recognition</a>
+                  <a class="dropdown-item disabled" href="#">Art/Style Generation</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sound</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown03">
+                  <a class="dropdown-item disabled" href="#">Trigger Word Detection</a>
+                  <a class="dropdown-item disabled" href="#">Speech to Text</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Networks</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown03">
+                  <a class="dropdown-item disabled" href="#">Link Prediction</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{% url 'mathapp:index' %}" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Math</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown03">
+                  <a class="dropdown-item" href="{% url 'mathapp:index' %}">Equation Generator</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://murenei.github.io" target="_blank">About</a>
+              </li>
+            </ul>
+            <!-- <form class="form-inline my-2 my-md-0">
+              <input class="form-control" type="text" placeholder="Search">
+            </form> -->
+          </div>
+        </nav>
+        {% endblock header %}
 
       <!-- MAIN CONTENT SECTION -->
+      <!-- CONTENT BLOCK -->
       {% block content %}
-      <main role="main" class="inner cover">
-        <h1 class="cover-heading">Richard Murray's Website</h1>
-        <p class="lead">Hi there. My name is Richard and I like to build things. This website showcases some of the things I have built.</p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary" id="walkthrough-2">Learn more</a>
-        </p>
-        <p class="lead">
-          <button href="#" class="btn btn-lg btn-secondary" id="ja">JQuery test</a>
-        </p>
+      <main role="main">
+
+        <section class="jumbotron text-center">
+          <div class="container">
+            <h1 class="jumbotron-heading">Welcome!</h1>
+            <p class="lead text-muted">This page showcases some machine learning applications I have built in Python. Browse away or click below to get in touch.</p>
+            <p>
+              <a href="mailto:rick.j.murray@gmail.com" class="btn btn-primary my-2">Contact Me</a>
+              <a href="#browse" class="btn btn-secondary my-2">Browse</a>
+            </p>
+          </div>
+        </section>
       </main>
       {% endblock content %}
 
@@ -86,6 +137,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- MDB.js -->
+    <!-- <script src="static/js/mdb.js"></script> -->
   </body>
 
   <!-- ADDITIONAL JS PLUGINS -->

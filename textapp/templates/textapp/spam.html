@@ -1,32 +1,39 @@
-{% extends "textapp/base.html" %}
+{% extends "mathapp/base.html" %}
 
 <!-- CONTENT BLOCK -->
 {% block content %}
 
-<!-- FORM -->
+<main role="main">
 
-<!-- END FORM -->
+  <section class="jumbotron">
+    <div class="container">
+      <h1 class="jumbotron-heading">Spam Detection</h1>
+      <p class="lead text-muted">This page identifies a text string as spam or not.</p>
+      <p class="lead text-muted">Try it below.</p>
+    </div>
+  </section>
 
-<p>Use this tool to detect whether a text message you received is spam or not!</p>
 
-
-<!-- FORM -->
-
-<form action="{% url 'textapp:detect-spam' %}" method="post">
-{% csrf_token %}
-  <div class="form-group">
-    <label for="formControlTextareaSpam">Dump text message text here!!</label>
-    <textarea class="form-control" id="formControlTextareaSpam" rows="3" name="spamToDetect"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<!-- END FORM -->
-<br/>
-{% if prediction %}
-<p>{{ prediction }}</p>
-{% else %}
-<p>Spam prediction will appear here</p>
-{% endif %}
+<div class="album py-5 bg-light" id="browse">
+    <div class="container">
+        <!-- FORM -->
+        <form action="{% url 'textapp:detect-spam' %}" method="post">
+        {% csrf_token %}
+          <div class="form-group">
+            <label for="formControlTextareaSpam">Dump text message text or email body here!!</label>
+            <textarea class="form-control" id="formControlTextareaSpam" rows="3" name="spamToDetect"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- END FORM -->
+        <br/>
+        {% if prediction %}
+        <p>{{ prediction }}</p>
+        {% else %}
+        <p>Spam prediction will appear here</p>
+        {% endif %}
+    </div>
+</div>
 
 {% endblock content %}
 <!-- END CONTENT BLOCK -->

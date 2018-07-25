@@ -3,43 +3,65 @@
 <!-- CONTENT BLOCK -->
 {% block content %}
 
-<!-- FORM -->
-<form action="{% url 'mathapp:gen_equation' %}" method="post">
-    {% csrf_token %}
-  <div class="form-group">
-    <label for="selectEqType">Select problem type</label>
-    <select class="form-control" id="selectEqType" name="problem_type">
-      <option>LIN</option>
-      <option>QUAD</option>
-      <option>POLY</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="selectNumberEqs">Select number of problems</label>
-    <select class="form-control" id="selectNumberEqs" name="n_problems">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<!-- END FORM -->
+<main role="main">
 
-<!-- LIST EQUATIONS -->
-{% if eqs %}
-    {% for eq in eqs %}
-        <p>{{ eq }}</p>
-    {% endfor %}
-{% else %}
-<p>
-  Equations will be listed here.
-</p>
-{% endif %}
-<!-- END EQUATION LIST -->
+  <section class="jumbotron">
+    <div class="container">
+      <h1 class="jumbotron-heading">Math equation generator</h1>
+      <p class="lead text-muted">This page randomly generates linear, quadratic or polynomial equations and provides the solutions.</p>
+      <p class="lead text-muted">Try it below.</p>
+    </div>
+  </section>
 
+  <!-- FORM -->
+  <div class="album py-5 bg-light" id="browse">
+    <div class="container">
+      <form action="{% url 'mathapp:gen_equation' %}" method="post">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="selectEqType">Select problem type</label>
+                <select class="form-control" id="selectEqType" name="problem_type">
+                  <option>LIN</option>
+                  <option>QUAD</option>
+                  <option>POLY</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="selectNumberEqs">Select number of problems</label>
+                <select class="form-control" id="selectNumberEqs" name="n_problems">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <!-- END FORM -->
+      <br/>
+      <br/>
+      <!-- LIST EQUATIONS -->
+      {% if eqs %}
+          {% for eq in eqs %}
+              <p>{{ eq }}</p>
+          {% endfor %}
+      {% else %}
+      <p>
+        [Equations will be listed here.]
+      </p>
+      {% endif %}
+      <!-- END EQUATION LIST -->
+    </div>
+  </div>
+
+</main>
 
 {% endblock content %}
 <!-- END CONTENT BLOCK -->
@@ -49,5 +71,4 @@
 {% endblock js_plugins %}
 
 {% block js_scripts %}
-
 {% endblock js_scripts %}

@@ -21,8 +21,8 @@ spami_vect = pickle.load(open(settings.BASE_DIR + '/textapp/data/spam_detector_v
 spami_clf = pickle.load(open(settings.BASE_DIR + '/textapp/data/spam_detector_clfLR_BoW_mindf5_ngramchars25.p', 'rb'))
 
 
-def index(request):
-    template = 'textapp/index.html'
+def sentiment(request):
+    template = 'textapp/sentiment.html'
 
     return render(request, template)
 
@@ -48,9 +48,15 @@ def analyse_sentiment(request):
         'prediction': prediction,
     }
 
-    template = 'textapp/index.html'
+    template = 'textapp/sentiment.html'
 
     return render(request, template, context)
+
+
+def spam(request):
+    template = 'textapp/spam.html'
+
+    return render(request, template)
 
 
 def detect_spam(request):
@@ -82,6 +88,12 @@ def detect_spam(request):
 from .document_similarity import document_path_similarity
 from .forms import SimilarityForm
 from django.views import View
+
+
+def similarity(request):
+    template = 'textapp/similarity.html'
+
+    return render(request, template)
 
 
 class CalcSimilarity(View):
