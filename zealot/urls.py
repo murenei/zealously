@@ -21,6 +21,7 @@ from django.views.generic import TemplateView
 
 
 import requests
+from pprint import pprint
 
 
 def airtable_confirm(request, record_id):
@@ -31,7 +32,7 @@ def airtable_confirm(request, record_id):
     payload = {'fields': {'Confirmed': 'YES!'}}
     r = requests.patch(url, headers=headers, json=payload)
     print(r.url)
-    print(r.text)
+    pprint(r.text)
 
     return HttpResponsePermanentRedirect("https://www.google.com")
 

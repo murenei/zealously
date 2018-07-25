@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Richard Murray">
     <!-- Static -->
-    <link rel="shortcut icon" href="{% comment %}{% static "insights/img/favicon.ico" %} {% endcomment %}" type="image/x-icon">
+    <link rel="shortcut icon" href="static/mathapp/img/favicon.ico" type="image/x-icon">
     <!-- Animated -->
 
     <!-- TITLE BLOCK -->
-    <title>{% block title %} Graph Vis Home {% endblock title %}</title>
+    <title>{% block title %} RM's Machine Learning Demo Page {% endblock title %}</title>
     <!-- DESCRIPTION BLOCK -->
     <meta name="description" content="{% block description %}A demonstration page for various network graphs {% endblock description %}">
 
@@ -20,7 +20,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="{% static "mathapp/css/cover.css" %}" rel="stylesheet">
+    <!-- <link href="{% static "mathapp/css/cover.css" %}" rel="stylesheet"> -->
+        <!-- Custom styles for this template -->
+    <link href="{% static "mathapp/css/album.css" %}" rel="stylesheet">
+    <link href="{% static "mathapp/css/mdb.css" %}" rel="stylesheet">
 
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -31,11 +34,13 @@
   </head>
 
 <!-- BODY SECTION -->
-  <body class="text-center" id="walkthrough-1">
+  <body class="text-center" id="">
 
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <!-- <div class="cover-container d-flex h-100 p-3 mx-auto flex-column"> -->
+    <!-- <div class="container"> -->
       
       <!-- HEADER SECTION -->
+      {% block header %}
       <header class="masthead mb-auto">
         <div class="inner">
           <h3 class="masthead-brand">{% block masthead %} Graph visualisations {% endblock masthead %}</h3>
@@ -46,10 +51,11 @@
           </nav>
         </div>
       </header>
+      {% endblock header %}
 
       <!-- MAIN CONTENT SECTION -->
+      {% block content %}
       <main role="main" class="inner cover">
-        {% block content %}
         <h1 class="cover-heading">Richard Murray's Website</h1>
         <p class="lead">Hi there. My name is Richard and I like to build things. This website showcases some of the things I have built.</p>
         <p class="lead">
@@ -58,8 +64,8 @@
         <p class="lead">
           <button href="#" class="btn btn-lg btn-secondary" id="ja">JQuery test</a>
         </p>
-        {% endblock content %}
       </main>
+      {% endblock content %}
 
       <!-- FOOTER SECTION -->
       <footer class="mastfoot mt-auto">
@@ -67,7 +73,7 @@
           <p>Check out my Github page <a href="https://github.com/murenei/">here</a>, and my Kaggle account <a href="https://kaggle.com/arjaymurray">here</a></p>
         </div>
       </footer>
-    </div>
+    <!-- </div> -->
 
 
     <!-- Bootstrap core JavaScript
