@@ -27,10 +27,105 @@
         <div class="container">
 
           <div class="row">
+
+
+            <!-- SENTIMENT ANALYSIS CARD -->
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <!-- IMAGE/OVERLAY -->
+                <div class="view overlay">
+                    <img class="card-img-top" src="static/mathapp/img/sentiment-analysis.jpg" alt="sentiment-analysis">
+                    <div class="mask flex-center rgba-green-strong">
+                        <p class="white-text">Sentiment Analysis</p>
+                    </div>
+                </div>
+                <!-- END IMAGE/OVERLAY -->
+                <div class="card-body">
+                  <p class="card-text">This app identifies sentiment in a text document</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a role="button" class="btn btn-sm btn-outline-secondary" href="{% url 'textapp:sentiment' %}">View</a>
+                    </div>
+                    <small class="text-muted">Python, nltk</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TEXT SIMILARITY CARD -->
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                 <!-- IMAGE/OVERLAY -->
+                <div class="view overlay">
+                    <img class="card-img-top" src="static/mathapp/img/castle-mirror.jpg" alt="mirror-image-text-similarity">
+                    <div class="mask flex-center rgba-green-strong">
+                        <p class="white-text">Text Similarity</p>
+                    </div>
+                </div>
+                <!-- END IMAGE/OVERLAY -->
+                <div class="card-body">
+                  <p class="card-text">This app calcaulates the mathematical similarity between two texts.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a role="button" class="btn btn-sm btn-outline-secondary" href="{% url 'textapp:similarity' %}">View</a>
+                    </div>
+                    <small class="text-muted">Python, mathgen</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EQUATION GENERATOR CARD -->
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                 <!-- IMAGE/OVERLAY -->
+                <div class="view overlay">
+                    <img class="card-img-top" src="static/mathapp/img/equations.jpg" alt="equation-generator">
+                    <div class="mask flex-center rgba-green-strong">
+                        <p class="white-text">Equation Generator</p>
+                    </div>
+                </div>
+                <!-- END IMAGE/OVERLAY -->
+                <div class="card-body">
+                  <p class="card-text">This app generates random linear, quadratic or polynomial equations along with their solutions.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a role="button" class="btn btn-sm btn-outline-secondary" href="{% url 'mathapp:index' %}">View</a>
+                    </div>
+                    <small class="text-muted">Python, mathgen</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FACE DETECTION CARD -->
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                 <!-- IMAGE/OVERLAY -->
+                <div class="view overlay">
+                    <img class="card-img-top" src="static/mathapp/img/face-detection-woman.jpg" alt="equation-generator">
+                    <div class="mask flex-center rgba-green-strong">
+                        <p class="white-text">Face Detection</p>
+                    </div>
+                </div>
+                <!-- END IMAGE/OVERLAY -->
+                <div class="card-body">
+                  <p class="card-text">Detects faces in an image and draws boundary boxes for each one.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a role="button" class="btn btn-sm btn-outline-secondary" href="{% url 'textapp:detect-faces' %}">View</a>
+                    </div>
+                    <small class="text-muted">Python, OpenCV</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SPAM DETECTION CARD -->
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <div class="view overlay">
-                    <img class="card-img-top" src="static/mathapp/img/spam-image.png" alt="Card image cap">
+                    <img class="card-img-top" src="static/mathapp/img/spam-image.jpg" alt="Card image cap">
                     <div class="mask flex-center rgba-green-strong">
                         <p class="white-text">Spam Detection</p>
                     </div>
@@ -40,16 +135,25 @@
                   <p class="card-text">Identifies spam emails or text messages. Uses sklearn Bag of Words implementation with Bayesian classifier</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <!-- <button type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'textapp:spam' %}">View</button> -->
+                      <a role="button" class="btn btn-sm btn-outline-secondary" href="{% url 'textapp:spam' %}">View</a>
+                      <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                     </div>
                     <small class="text-muted">Python, scikit-learn</small>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!-- SIGN LANGUAGE CARD -->
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="static/mathapp/img/sign-language-hand-sign.jpg" alt="Card image cap">
+                <div class="view overlay">
+                    <img class="card-img-top" src="static/mathapp/img/sign-language-hand-sign.jpg" alt="Card image cap">
+                    <div class="mask flex-center rgba-green-strong">
+                        <p class="white-text">Sign Language (Coming soon!)</p>
+                    </div>
+                </div>
                 <div class="card-body">
                   <p class="card-text">Sign language hand signal recognition. This classifier was trained on the full UCI dataset of 95 hand signals.</p>
                   <div class="d-flex justify-content-between align-items-center">
@@ -61,9 +165,16 @@
                 </div>
               </div>
             </div>
+
+            <!-- LINK PREDICTION CARD -->
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="static/mathapp/img/Lydian.jpg" alt="Card image cap">
+                <div class="view overlay">
+                    <img class="card-img-top" src="static/mathapp/img/Lydian.jpg" alt="Card image cap">
+                    <div class="mask flex-center rgba-green-strong">
+                        <p class="white-text">Link Prediction (Coming soon!)</p>
+                    </div>
+                </div>
                 <div class="card-body">
                   <p class="card-text">Network link prediction. This model uses a SVM classifier to predict whether two unconnected members (nodes) of a social network are likely to connect in the future. </p>
                   <div class="d-flex justify-content-between align-items-center">
@@ -76,97 +187,29 @@
               </div>
             </div>
 
+
+            <!-- CAT CLASSIFICATION CARD -->
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="static/mathapp/img/Pixiebob-cat.jpg" alt="Card image cap">
+                <div class="view overlay">
+                    <img class="card-img-top" src="static/mathapp/img/Pixiebob-cat.jpg" alt="Card image cap">
+                    <div class="mask flex-center rgba-green-strong">
+                        <p class="white-text">Cat Classification (Coming soon!)</p>
+                    </div>
+                </div>
                 <div class="card-body">
                   <p class="card-text">Cat classification. This model identifies whether the image is of a cat or not.</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                     </div>
                     <small class="text-muted">Python, Keras</small>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">TensorFlow</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

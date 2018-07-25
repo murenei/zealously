@@ -31,6 +31,7 @@ urlpatterns = [
     path('similarity', views.similarity, name='similarity'),
     path('calc_similarity', views.CalcSimilarity.as_view(), name='calc-similarity'),
 
+    # path('faces', views.faces, name='faces'),
     path('detect-faces', views.DetectFaces.as_view(), name='detect-faces'),
     # path('similarity', views.calc_similarity, name='calc-similarity'),
     # path('', TemplateView.as_view(template_name='home.html'), name='home'),

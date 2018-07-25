@@ -3,34 +3,38 @@
 <!-- CONTENT BLOCK -->
 {% block content %}
 
-<!-- FORM -->
+<main role="main">
 
-<!-- END FORM -->
-
-<p>Use this tool to detect a face in an image upload!</p>
-
-
-<!-- FORM -->
-
-<form action="{% url 'textapp:detect-faces' %}" method="post" enctype="multipart/form-data">
-{% csrf_token %}
-{{ form.as_p }}
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<!-- END FORM -->
+  <section class="jumbotron">
+    <div class="container">
+      <h1 class="jumbotron-heading">Detect Faces</h1>
+      <p class="lead text-muted">This page detects faces in an image upload!</p>
+      <p class="lead text-muted">Try it below.</p>
+    </div>
+  </section>
 
 
-  
-{% load static %}
+<div class="album py-5 bg-light" id="browse">
+    <div class="container">
+        <!-- FORM -->
+        <form action="{% url 'textapp:detect-faces' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- END FORM -->
+        {% load static %}
 
-<p>Images will appear here...</p>
-<p>Number of faces detected: {{ num_faces }}</p>
+        <p>Images will appear here...</p>
+        <p>Number of faces detected: {{ num_faces }}</p>
 
-<div>
-    <img src="{% static img_url %}" alt-text="" class="img-thumbnail"/>
+        <div>
+            <img src="{% static img_url %}" alt-text="" class="img-thumbnail"/>
+        </div>
+        <p>Image filename: {{ img_url }}</p>
+        <br/>
+    </div>
 </div>
-<p>Image filename: {{ img_url }}</p>
-<br/>
 
 {% endblock content %}
 <!-- END CONTENT BLOCK -->
