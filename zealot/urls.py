@@ -42,7 +42,7 @@ urlpatterns = [
     path('math/', include('mathapp.urls'), name='mathapp'),
     path('text/', include('textapp.urls'), name='textapp'),
     path('', TemplateView.as_view(template_name='mathapp/home.html'), name='home'),
-    path('react', TemplateView.as_view(template_name='mathapp/single-file-example.html'), name='home'),
+    path('react', TemplateView.as_view(template_name='mathapp/single-file-example.html'), name='react'),
     # the template engine doesn't search the 'mysite' (zealot) folder for templates. It does search all of the app folders though.
     # For now, home.html is in the mathapp template folder. Will eventually create a separate app for the home pages.
     path('about', AboutView.as_view(), name='about-view'),
