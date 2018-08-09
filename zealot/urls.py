@@ -50,8 +50,10 @@ urlpatterns = [
 
 
     # and for airtablw
-    path('airtable/confirm/<str:record_id>', airtable_confirm, name='airtable_confirm')
+    path('airtable/confirm/<str:record_id>', airtable_confirm, name='airtable_confirm'),
 
+    # For django-allauth
+    # path('accounts/', include('allauth.urls')),
 
 
 ]

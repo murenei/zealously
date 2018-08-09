@@ -32,7 +32,7 @@ def analyse_sentiment(request):
     X_test = request.POST['textToAnalyse']
 
     # transform into doc-term matrix (nparray)
-    X_test_transformed = sent_vect.transform([X_test])
+    X_test_transformed = senti_vect.transform([X_test])
     # print(X_test_transformed)
 
     #
